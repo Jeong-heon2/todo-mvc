@@ -10,6 +10,7 @@ class TodoListActivity : BaseActivity(), TodoListViewMvc.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewMvc = compositionRoot?.viewMvcFactory?.getTodoListViewMvc(null)
         viewMvc?.registerListener(this)
 
         setContentView(viewMvc?.getRootView())
