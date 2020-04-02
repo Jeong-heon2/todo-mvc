@@ -14,9 +14,15 @@ class TodoListActivity : BaseActivity(), TodoListViewMvc.Listener {
         viewMvc?.registerListener(this)
 
         setContentView(viewMvc?.getRootView())
+
+        // TODO: remove test code
+        viewMvc?.bindTodoItems(listOf(
+            TodoItem("1", "First Task"),
+            TodoItem("2", "Second Task")
+        ))
     }
 
-    override fun todoItemClicked(todoItem: TodoItem) {
+    override fun onTodoItemClicked(todoItem: TodoItem) {
         TODO("Not yet implemented")
     }
 }
