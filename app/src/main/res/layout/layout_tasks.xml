@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.todolist.TodoListActivity">
+    tools:context=".screens.tasks.TasksActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodoList"
@@ -14,6 +14,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/layout_todo_list_item" />
+        tools:listitem="@layout/layout_task_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

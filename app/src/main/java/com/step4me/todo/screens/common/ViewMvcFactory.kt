@@ -2,19 +2,22 @@ package com.step4me.todo.screens.common
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.step4me.todo.screens.todolist.TodoListItemViewMvc
-import com.step4me.todo.screens.todolist.TodoListItemViewMvcImpl
-import com.step4me.todo.screens.todolist.TodoListViewMvc
-import com.step4me.todo.screens.todolist.TodoListViewMvcImpl
+import com.step4me.todo.screens.tasks.taskitem.TaskItemViewMvc
+import com.step4me.todo.screens.tasks.taskitem.TaskItemViewMvcImpl
+import com.step4me.todo.screens.tasks.TasksViewMvc
+import com.step4me.todo.screens.tasks.TasksViewMvcImpl
 
 class ViewMvcFactory(private val layoutInflater: LayoutInflater) {
 
-    fun getTodoListViewMvc(parent: ViewGroup?): TodoListViewMvc {
-        return TodoListViewMvcImpl(layoutInflater, parent, this)
+    fun getTasksViewMvc(parent: ViewGroup?): TasksViewMvc {
+        return TasksViewMvcImpl(layoutInflater, parent, this)
     }
 
-    fun getTodoListItemViewMvc(parent: ViewGroup?): TodoListItemViewMvc {
-        return TodoListItemViewMvcImpl(layoutInflater, parent)
+    fun getTaskItemViewMvc(parent: ViewGroup?): TaskItemViewMvc {
+        return TaskItemViewMvcImpl(
+            layoutInflater,
+            parent
+        )
     }
 
 }

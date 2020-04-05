@@ -1,28 +1,29 @@
-package com.step4me.todo.screens.todolist
+package com.step4me.todo.screens.tasks
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.step4me.todo.model.TodoItem
+import com.step4me.todo.task.Task
 import com.step4me.todo.screens.common.ViewMvcFactory
+import com.step4me.todo.screens.tasks.taskitem.TaskItemViewMvc
 
-class TodoRecyclerAdapter(
+class TasksRecyclerAdapter(
     private val listener: Listener,
     private val viewFactory: ViewMvcFactory
-) : RecyclerView.Adapter<TodoRecyclerAdapter.TodoListViewHolder>(), TodoListItemViewMvc.Listener {
+) : RecyclerView.Adapter<TasksRecyclerAdapter.TodoListViewHolder>(), TaskItemViewMvc.Listener {
 
     interface Listener {
-        fun onTodoItemClicked(todoItem: TodoItem)
+        fun onTaskClicked(task: Task)
     }
 
-    class TodoListViewHolder(val viewMvc: TodoListItemViewMvc) :
+    class TodoListViewHolder(val viewMvc: TaskItemViewMvc) :
         RecyclerView.ViewHolder(viewMvc.getRootView()) {
 
     }
 
-    private val todoItems = arrayListOf<TodoItem>()
+    private val todoItems = arrayListOf<Task>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListViewHolder {
-        val viewMvc = viewFactory.getTodoListItemViewMvc(parent)
+        val viewMvc = viewFactory.getTaskItemViewMvc(parent)
         viewMvc.registerListener(this)
         return TodoListViewHolder(viewMvc)
     }
@@ -32,15 +33,15 @@ class TodoRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: TodoListViewHolder, position: Int) {
-        holder.viewMvc.bindTodoItem(todoItems[position])
+        holder.viewMvc.bindTask(todoItems[position])
     }
 
-    override fun onTodoItemClicked(todoItem: TodoItem) {
-        listener.onTodoItemClicked(todoItem)
+    override fun onTaskClicked(task: Task) {
+        listener.onTaskClicked(task)
     }
 
-    fun bindTodoItems(todoItems: List<TodoItem>) {
-        this.todoItems.addAll(todoItems)
+    fun bindTasks(tasks: List<Task>) {
+        this.todoItems.addAll(tasks)
         notifyDataSetChanged()
     }
 }
