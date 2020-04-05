@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.step4me.todo.R
 import com.step4me.todo.task.Task
-import com.step4me.todo.screens.common.BaseObservableViewMvc
+import com.step4me.todo.screens.common.views.BaseObservableViewMvc
 import com.step4me.todo.screens.common.ViewMvcFactory
 
 class TasksViewMvcImpl(

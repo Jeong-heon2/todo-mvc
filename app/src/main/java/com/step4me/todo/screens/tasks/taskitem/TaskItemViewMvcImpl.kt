@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.step4me.todo.R
 import com.step4me.todo.task.Task
-import com.step4me.todo.screens.common.BaseObservableViewMvc
+import com.step4me.todo.screens.common.views.BaseObservableViewMvc
 
 class TaskItemViewMvcImpl(
     inflater: LayoutInflater,

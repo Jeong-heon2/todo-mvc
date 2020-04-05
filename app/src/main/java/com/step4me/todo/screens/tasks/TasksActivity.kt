@@ -2,7 +2,7 @@ package com.step4me.todo.screens.tasks
 
 import android.os.Bundle
 import com.step4me.todo.task.Task
-import com.step4me.todo.screens.common.BaseActivity
+import com.step4me.todo.screens.common.controllers.BaseActivity
 
 class TasksActivity : BaseActivity(), TasksViewMvc.Listener {
 

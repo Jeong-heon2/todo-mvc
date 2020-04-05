@@ -1,7 +1,7 @@
-package com.step4me.todo.screens.common
+package com.step4me.todo.screens.common.controllers
 
 import androidx.appcompat.app.AppCompatActivity
-import com.step4me.todo.CustomApplication
+import com.step4me.todo.common.CustomApplication
 import com.step4me.todo.common.dependencyinjection.ControllerCompositionRoot
 
 open class BaseActivity : AppCompatActivity() {

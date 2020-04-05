@@ -1,4 +1,4 @@
-package com.step4me.todo.screens.common
+package com.step4me.todo.screens.common.views
 
 import android.content.Context
 import android.view.View

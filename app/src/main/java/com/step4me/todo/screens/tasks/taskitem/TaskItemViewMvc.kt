@@ -1,9 +1,10 @@
 package com.step4me.todo.screens.tasks.taskitem
 
 import com.step4me.todo.task.Task
-import com.step4me.todo.screens.common.ObservableViewMvc
+import com.step4me.todo.screens.common.views.ObservableViewMvc
 
-interface TaskItemViewMvc: ObservableViewMvc<TaskItemViewMvc.Listener> {
+interface TaskItemViewMvc:
+    ObservableViewMvc<TaskItemViewMvc.Listener> {
 
     interface Listener {
         fun onTaskClicked(task: Task)

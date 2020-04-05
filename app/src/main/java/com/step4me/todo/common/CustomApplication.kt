@@ -1,4 +1,4 @@
-package com.step4me.todo
+package com.step4me.todo.common
 
 import android.app.Application
 import com.step4me.todo.common.dependencyinjection.CompositionRoot

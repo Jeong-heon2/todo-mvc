@@ -1,6 +1,7 @@
-package com.step4me.todo.screens.common
+package com.step4me.todo.screens.common.views
 
-interface ObservableViewMvc<ListenerType> : ViewMvc {
+interface ObservableViewMvc<ListenerType> :
+    ViewMvc {
 
     fun registerListener(listener: ListenerType)
 
