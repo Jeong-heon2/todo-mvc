@@ -2,12 +2,14 @@ package com.step4me.todo.screens.tasks
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.step4me.todo.R
 import com.step4me.todo.task.Task
 import com.step4me.todo.screens.common.views.BaseObservableViewMvc
 import com.step4me.todo.screens.common.ViewMvcFactory
+import com.step4me.todo.screens.common.toolbar.ToolbarViewMvc
 
 class TasksViewMvcImpl(
     inflater: LayoutInflater,
@@ -17,8 +19,11 @@ class TasksViewMvcImpl(
     TasksViewMvc,
     TasksRecyclerAdapter.Listener {
 
-    private var recyclerView: RecyclerView
-    private var adapter: TasksRecyclerAdapter
+    private val toolbar: Toolbar
+    private val toolbarViewMvc: ToolbarViewMvc
+
+    private val recyclerView: RecyclerView
+    private val adapter: TasksRecyclerAdapter
 
     init {
         setRootView(inflater.inflate(R.layout.layout_tasks, parent, false))
@@ -26,6 +31,11 @@ class TasksViewMvcImpl(
         recyclerView = findViewById(R.id.rvTodoList)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
+
+        toolbar = findViewById(R.id.tbTasks)
+        toolbarViewMvc = viewMvcFactory.getToolbarViewMvc(toolbar)
+        toolbarViewMvc.setTitle("TO-DO")
+        toolbar.addView(toolbarViewMvc.getRootView())
     }
 
     override fun bindTasks(tasks: List<Task>) {
