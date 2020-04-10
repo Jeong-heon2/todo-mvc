@@ -8,6 +8,8 @@ interface TasksViewMvc:
 
     interface Listener {
         fun onTaskClicked(task: Task)
+
+        fun onAddTaskClicked()
     }
 
     fun bindTasks(tasks: List<Task>)

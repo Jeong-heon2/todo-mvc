@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.step4me.todo.R
-import com.step4me.todo.task.Task
-import com.step4me.todo.screens.common.views.BaseObservableViewMvc
 import com.step4me.todo.screens.common.ViewMvcFactory
 import com.step4me.todo.screens.common.toolbar.ToolbarViewMvc
+import com.step4me.todo.screens.common.views.BaseObservableViewMvc
+import com.step4me.todo.task.Task
 
 class TasksViewMvcImpl(
     inflater: LayoutInflater,
@@ -19,6 +20,7 @@ class TasksViewMvcImpl(
     TasksViewMvc,
     TasksRecyclerAdapter.Listener {
 
+    private val addTaskButton: FloatingActionButton
     private val toolbar: Toolbar
     private val toolbarViewMvc: ToolbarViewMvc
 
@@ -36,6 +38,13 @@ class TasksViewMvcImpl(
         toolbarViewMvc = viewMvcFactory.getToolbarViewMvc(toolbar)
         toolbarViewMvc.setTitle("TO-DO")
         toolbar.addView(toolbarViewMvc.getRootView())
+
+        addTaskButton = findViewById(R.id.fabTasks)
+        addTaskButton.setOnClickListener {
+            for (listener in listeners) {
+                listener.onAddTaskClicked()
+            }
+        }
     }
 
     override fun bindTasks(tasks: List<Task>) {
