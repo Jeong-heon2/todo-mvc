@@ -32,6 +32,6 @@ class TasksActivity : BaseActivity(), TasksViewMvc.Listener {
     }
 
     override fun onAddTaskClicked() {
-        screensNavigator?.moveToDetailTask("")
+        screensNavigator?.moveToEditTask("")
     }
 }

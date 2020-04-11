@@ -1,4 +1,4 @@
-package com.step4me.todo.screens.taskdetail
+package com.step4me.todo.screens.addedittask
 
 import android.content.Context
 import android.content.Intent
@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import com.step4me.todo.screens.common.controllers.BaseActivity
 
-class TaskDetailActivity: BaseActivity() {
+class TaskEditActivity: BaseActivity() {
 
     companion object {
-        private val TAG = TaskDetailActivity::class.java.simpleName
+        private val TAG = TaskEditActivity::class.java.simpleName
         fun start(context: Context, taskId: String) {
-            Intent(context, TaskDetailActivity::class.java).apply {
+            Intent(context, TaskEditActivity::class.java).apply {
                 context.startActivity(this)
             }
         }
