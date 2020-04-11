@@ -23,7 +23,7 @@ TaskEditViewMvc {
 
         toolbar = findViewById(R.id.tbEditTask)
         toolbarViewMvc = viewMvcFactory.getToolbarViewMvc(toolbar)
-        toolbarViewMvc.setTitle("New Task")
+        toolbarViewMvc.setTitle(getString(R.string.toolbar_add_task))
         toolbar.addView(toolbarViewMvc.getRootView())
     }
 }

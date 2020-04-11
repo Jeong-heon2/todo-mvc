@@ -2,6 +2,7 @@ package com.step4me.todo.screens.common.views
 
 import android.content.Context
 import android.view.View
+import androidx.annotation.StringRes
 
 abstract class BaseViewMvc : ViewMvc {
 
@@ -20,5 +21,9 @@ abstract class BaseViewMvc : ViewMvc {
 
     protected fun <T : View> findViewById(id: Int): T {
         return rootView.findViewById(id)
+    }
+
+    protected fun getString(@StringRes resId: Int): String {
+        return context.getString(resId)
     }
 }

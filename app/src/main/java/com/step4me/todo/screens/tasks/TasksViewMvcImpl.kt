@@ -36,7 +36,7 @@ class TasksViewMvcImpl(
 
         toolbar = findViewById(R.id.tbTasks)
         toolbarViewMvc = viewMvcFactory.getToolbarViewMvc(toolbar)
-        toolbarViewMvc.setTitle("TO-DO")
+        toolbarViewMvc.setTitle(getString(R.string.toolbar_task_list))
         toolbar.addView(toolbarViewMvc.getRootView())
 
         addTaskButton = findViewById(R.id.fabTasks)
