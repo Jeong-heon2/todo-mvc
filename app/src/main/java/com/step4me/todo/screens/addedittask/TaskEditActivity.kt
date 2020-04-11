@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.step4me.todo.screens.common.controllers.BaseActivity
 
-class TaskEditActivity: BaseActivity() {
+class TaskEditActivity: BaseActivity(), TaskEditViewMvc.Listener {
 
     companion object {
         private val TAG = TaskEditActivity::class.java.simpleName
@@ -17,8 +17,19 @@ class TaskEditActivity: BaseActivity() {
         }
     }
 
+    private var viewMvc: TaskEditViewMvc? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i(TAG, "onCreate")
+        viewMvc = compositionRoot?.viewMvcFactory?.getTaskEditViewMvc(null)
+        viewMvc?.registerListener(this)
+
+        setContentView(viewMvc?.getRootView())
+
+    }
+
+    override fun onEditCompleted() {
+        TODO("Not yet implemented")
     }
 }

@@ -2,6 +2,8 @@ package com.step4me.todo.screens.common
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.step4me.todo.screens.addedittask.TaskEditViewMvc
+import com.step4me.todo.screens.addedittask.TaskEditViewMvcImpl
 import com.step4me.todo.screens.common.toolbar.ToolbarViewMvc
 import com.step4me.todo.screens.tasks.taskitem.TaskItemViewMvc
 import com.step4me.todo.screens.tasks.taskitem.TaskItemViewMvcImpl
@@ -19,6 +21,10 @@ class ViewMvcFactory(private val layoutInflater: LayoutInflater) {
             layoutInflater,
             parent
         )
+    }
+
+    fun getTaskEditViewMvc(parent: ViewGroup?): TaskEditViewMvc {
+        return TaskEditViewMvcImpl(layoutInflater, parent, this)
     }
 
     fun getToolbarViewMvc(parent: ViewGroup?): ToolbarViewMvc {
