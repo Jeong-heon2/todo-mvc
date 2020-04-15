@@ -20,11 +20,6 @@ class TasksActivity : BaseActivity(), TasksViewMvc.Listener {
 
         setContentView(viewMvc?.getRootView())
 
-        // TODO: remove test code
-        viewMvc?.bindTasks(listOf(
-            Task("1", "First Task"),
-            Task("2", "Second Task")
-        ))
     }
 
     override fun onTaskClicked(task: Task) {
