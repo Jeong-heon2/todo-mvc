@@ -41,7 +41,10 @@ class TasksRecyclerAdapter(
     }
 
     fun bindTasks(tasks: List<Task>) {
-        this.todoItems.addAll(tasks)
+        with(todoItems) {
+            clear()
+            addAll(tasks)
+        }
         notifyDataSetChanged()
     }
 }
