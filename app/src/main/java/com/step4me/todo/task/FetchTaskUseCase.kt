@@ -6,7 +6,7 @@ import com.step4me.todo.database.TasksRepository
 class FetchTaskUseCase(private val tasksRepository: TasksRepository): BaseObservable<FetchTaskUseCase.Listener>() {
 
     interface Listener {
-        fun onTasksFetched(tasks: List<Task>)
+        suspend fun onTasksFetched(tasks: List<Task>)
     }
 
     suspend fun fetchAllTaskAndNotify() {

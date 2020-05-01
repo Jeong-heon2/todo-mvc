@@ -41,7 +41,9 @@ class TasksActivity : BaseActivity(), TasksViewMvc.Listener, FetchTaskUseCase.Li
         screensNavigator?.moveToEditTask("")
     }
 
-    override fun onTasksFetched(tasks: List<Task>) {
-        viewMvc?.bindTasks(tasks)
+    override suspend fun onTasksFetched(tasks: List<Task>) {
+        withContext(Dispatchers.Main) {
+            viewMvc?.bindTasks(tasks)
+        }
     }
 }
