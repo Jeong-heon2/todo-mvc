@@ -6,6 +6,6 @@ interface TasksRepository {
 
     suspend fun getTasks(): List<Task>
 
-    suspend fun insert(task: Task)
+    suspend fun insert(task: Task): Long
 
 }

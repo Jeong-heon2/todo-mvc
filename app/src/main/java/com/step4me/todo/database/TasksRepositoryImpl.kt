@@ -10,9 +10,7 @@ class TasksRepositoryImpl(private val tasksDao: TasksDao): TasksRepository {
         return tasksDao.getTasks()
     }
 
-    override suspend fun insert(task: Task) {
-        coroutineScope {
-            launch { tasksDao.insertTask(task) }
-        }
+    override suspend fun insert(task: Task): Long {
+        return tasksDao.insertTask(task)
     }
 }
