@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import com.step4me.todo.screens.common.ViewMvcFactory
 import com.step4me.todo.screens.common.screensnavigator.ScreensNavigator
 import com.step4me.todo.task.FetchTaskUseCase
+import com.step4me.todo.task.SaveTaskUseCase
 
 class ControllerCompositionRoot(compositionRoot: CompositionRoot,
                                 activity: Activity) {
@@ -17,5 +18,6 @@ class ControllerCompositionRoot(compositionRoot: CompositionRoot,
     val screensNavigator = ScreensNavigator(activity)
 
     val fetchTaskUseCase = FetchTaskUseCase(tasksRepository)
+    val saveTaskUseCase = SaveTaskUseCase(tasksRepository)
 
 }

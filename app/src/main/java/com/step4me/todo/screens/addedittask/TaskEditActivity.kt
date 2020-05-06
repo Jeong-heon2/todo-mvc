@@ -5,8 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.step4me.todo.screens.common.controllers.BaseActivity
+import com.step4me.todo.task.SaveTaskUseCase
+import com.step4me.todo.task.Task
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class TaskEditActivity: BaseActivity(), TaskEditViewMvc.Listener {
+class TaskEditActivity: BaseActivity(), TaskEditViewMvc.Listener, SaveTaskUseCase.Listener {
 
     companion object {
         private val TAG = TaskEditActivity::class.java.simpleName
@@ -18,18 +23,31 @@ class TaskEditActivity: BaseActivity(), TaskEditViewMvc.Listener {
     }
 
     private var viewMvc: TaskEditViewMvc? = null
+    private var saveTaskUseCase: SaveTaskUseCase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i(TAG, "onCreate")
         viewMvc = compositionRoot?.viewMvcFactory?.getTaskEditViewMvc(null)
-        viewMvc?.registerListener(this)
+        saveTaskUseCase = compositionRoot?.saveTaskUseCase
 
         setContentView(viewMvc?.getRootView())
 
     }
 
-    override fun onEditCompleted() {
-        TODO("Not yet implemented")
+    override fun onStart() {
+        super.onStart()
+        viewMvc?.registerListener(this)
+        saveTaskUseCase?.registerListener(this)
+    }
+
+    override fun onEditCompleted(task: Task) {
+        GlobalScope.launch(Dispatchers.IO) {
+            saveTaskUseCase?.saveTaskAndNotify(task)
+        }
+    }
+
+    override fun onSaveTaskSuccess() {
+        finish()
     }
 }
